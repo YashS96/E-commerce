@@ -9,6 +9,10 @@ import Connection from './connection/db.js'
 
 const app = express();
 
+app.use('/', cors())
+app.use('/', bodyParser.urlencoded({extended: true}))
+app.use('/', bodyParser.json({extended: true}))
+app.use('/', Route)
 
 dotenv.config();
 
@@ -16,7 +20,7 @@ const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 
 
-//Connection(username, password);
+Connection(username, password);
 
 const port=4000;
 
